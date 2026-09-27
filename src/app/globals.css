@@ -1,24 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-outfit);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-cormorant);
+  --font-manrope: var(--font-manrope);
+  --font-cormorant: var(--font-cormorant);
   
-  --color-zinc-950: #09090b;
-  --color-zinc-900: #18181b;
-  --color-zinc-800: #27272a;
-  --color-zinc-400: #a1a1aa;
-  --color-zinc-100: #f4f4f5;
-
-  --color-accent: #f4f4f5;
+  --color-sand: #EFECE6;
+  --color-charcoal: #2C302E;
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-zinc-900/40 backdrop-blur-md border border-zinc-800/50;
+    @apply bg-sand/40 backdrop-blur-md border border-charcoal/10;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 body {
   overflow-x: hidden;
+  background-color: var(--color-sand);
+  color: var(--color-charcoal);
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

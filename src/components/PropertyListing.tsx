@@ -1,129 +1,159 @@
-import { useState } from 'react';
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { useAppStore } from '@/lib/store';
+import gsap from 'gsap';
 
 const properties = [
   {
     id: 'bandra',
-    title: 'Bandra Luxury Villa',
+    title: 'Bandra Villa',
     type: 'Villa',
-    price: '$4,200,000',
+    price: '$4.2M',
     specs: '6 Beds · 7 Baths · 8,500 sqft',
-    image: '/properties/bandra_ext.jpg',
+    desc: 'An architectural masterpiece overlooking the Arabian Sea. Featuring minimalist concrete forms and expansive glass facades.',
+    images: {
+      ext: '/properties/bandra_ext.jpg',
+      int: '/properties/bandra_living.jpg',
+      kit: '/properties/bandra_kitchen.jpg',
+      bath: '/properties/bandra_bathroom.jpg'
+    }
   },
   {
     id: 'juhu',
-    title: 'Juhu Beachfront Mansion',
+    title: 'Juhu Mansion',
     type: 'Mansion',
-    price: '$8,500,000',
+    price: '$8.5M',
     specs: '8 Beds · 10 Baths · 12,000 sqft',
-    image: '/properties/juhu_ext.jpg',
+    desc: 'Unprecedented luxury in Mumbai\'s most exclusive neighborhood. Complete with private beachfront access and infinity pool.',
+    images: {
+      ext: '/properties/juhu_ext.jpg',
+      int: '/properties/juhu_living.jpg',
+      kit: '/properties/juhu_kitchen.jpg',
+      bath: '/properties/juhu_bath.jpg'
+    }
   },
   {
     id: 'worli',
-    title: 'Worli Sea Face Penthouse',
+    title: 'Worli Penthouse',
     type: 'Penthouse',
-    price: '$5,900,000',
+    price: '$5.9M',
     specs: '4 Beds · 5 Baths · 6,200 sqft',
-    image: '/properties/worli_ext.jpg',
+    desc: 'A brutalist sanctuary in the sky. Panoramic city views meets high-end custom millwork and marble interiors.',
+    images: {
+      ext: '/properties/worli_ext.jpg',
+      int: '/properties/worli_int.jpg',
+      kit: '/properties/worli_kit.jpg',
+      bath: '/properties/worli_bath.jpg'
+    }
   }
 ];
 
 export default function PropertyListing() {
-  const [selectedProperty, setSelectedProperty] = useState<typeof properties[0] | null>(null);
+  const selectedPropertyId = useAppStore((state) => state.selectedPropertyId);
+  const setSelectedPropertyId = useAppStore((state) => state.setSelectedPropertyId);
+  const selectedProperty = properties.find(p => p.id === selectedPropertyId) || null;
+  const drawerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (selectedPropertyId && drawerRef.current) {
+      // Start hidden to the right
+      gsap.set(drawerRef.current, { x: '100%' });
+      // Animate in
+      gsap.to(drawerRef.current, { x: '0%', duration: 1.0, ease: 'power4.out' });
+    }
+  }, [selectedPropertyId]);
+
+  const closeDrawer = () => {
+    if (drawerRef.current) {
+      gsap.to(drawerRef.current, { 
+        x: '100%', 
+        duration: 0.8, 
+        ease: 'power3.inOut',
+        onComplete: () => setSelectedPropertyId(null)
+      });
+    }
+  };
+
+  // Keep it in the DOM but hidden when not selected so GSAP can animate it out
   return (
-    <section className="relative w-full z-20 bg-black/80 backdrop-blur-xl min-h-screen pt-32 pb-24 px-8 md:px-16 text-white border-t border-white/10">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">Exclusive Listings</h2>
-        <p className="text-white/50 mb-16 font-mono text-sm uppercase tracking-widest">Mumbai, Maharashtra</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {properties.map((prop) => (
-            <div 
-              key={prop.id}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-white/30 transition-colors bg-white/5"
-              onClick={() => setSelectedProperty(prop)}
-            >
-              <div className="aspect-[4/5] overflow-hidden">
-                {/* Fallback gradient if image fails */}
-                <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-950 -z-10" />
-                <img 
-                  src={prop.image} 
-                  alt={prop.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-              
-              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <p className="text-white/60 font-mono text-xs uppercase tracking-widest mb-2">{prop.type}</p>
-                <h3 className="text-2xl font-medium mb-1">{prop.title}</h3>
-                <p className="text-xl font-light text-white/90 mb-4">{prop.price}</p>
-                
-                <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                  <p className="text-sm text-white/50 border-t border-white/20 pt-4 mt-2">
-                    {prop.specs}
-                  </p>
-                  <button className="mt-6 w-full py-3 bg-white text-black font-medium text-sm rounded-lg hover:bg-zinc-200 transition-colors">
-                    View Gallery
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Basic Modal for Gallery (Expandable later) */}
+    <div 
+      ref={drawerRef}
+      className={`fixed top-0 right-0 w-full md:w-[45vw] h-screen bg-[#050505]/90 backdrop-blur-3xl z-50 border-l border-white/5 overflow-y-auto transform translate-x-full ${!selectedPropertyId && !selectedProperty ? 'hidden' : ''}`}
+    >
       {selectedProperty && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-3xl flex flex-col pt-24 px-8 overflow-y-auto">
-          <button 
-            onClick={() => setSelectedProperty(null)}
-            className="absolute top-8 right-8 text-white/50 hover:text-white font-mono text-sm tracking-widest uppercase transition-colors"
-          >
-            [ Close ]
-          </button>
+        <div className="p-12 md:p-16 flex flex-col min-h-screen">
           
-          <div className="max-w-5xl mx-auto w-full mb-24">
-            <h2 className="text-4xl md:text-6xl font-medium mb-4">{selectedProperty.title}</h2>
-            <p className="text-white/50 font-mono text-sm tracking-widest mb-12">{selectedProperty.specs}</p>
+          {/* Header */}
+          <div className="flex justify-between items-start mb-16">
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase mb-4">
+                [ {selectedProperty.type} ]
+              </p>
+              <h2 className="text-4xl md:text-5xl font-outfit font-medium text-white tracking-tight">
+                {selectedProperty.title}
+              </h2>
+            </div>
+            <button 
+              onClick={closeDrawer}
+              className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white/60 transition-colors"
+            >
+              <span className="font-mono text-xs text-white/50 group-hover:text-white transition-colors">✕</span>
+            </button>
+          </div>
+
+          {/* Specs & Desc */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 border-t border-b border-white/10 py-8">
+            <div>
+              <p className="font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase mb-2">Price</p>
+              <p className="font-outfit text-2xl text-white">{selectedProperty.price}</p>
+            </div>
+            <div>
+              <p className="font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase mb-2">Specifications</p>
+              <p className="font-outfit text-lg text-white/80">{selectedProperty.specs}</p>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-white/50 leading-relaxed text-sm max-w-md">
+                {selectedProperty.desc}
+              </p>
+            </div>
+          </div>
+
+          {/* Editorial Image Gallery */}
+          <div className="space-y-4">
+            <p className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase mb-6">Gallery</p>
             
-            <div className="w-full aspect-video rounded-xl overflow-hidden bg-zinc-900 border border-white/10 mb-8">
-              <img src={selectedProperty.image} alt="Exterior" className="w-full h-full object-cover" />
+            <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-zinc-900">
+              <img src={selectedProperty.images.ext} alt="Exterior" className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700 hover:scale-105" />
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {/* Interior */}
-              <div className="aspect-square rounded-xl overflow-hidden bg-zinc-900 border border-white/10 group relative">
-                <img src={`/properties/${selectedProperty.id}_int.jpg`} alt="Interior" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-white font-mono text-xs uppercase tracking-widest">Interior</span>
-                </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[3/4] rounded-sm overflow-hidden bg-zinc-900 group">
+                <img src={selectedProperty.images.int} alt="Interior" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
               </div>
-              
-              {/* Kitchen */}
-              <div className="aspect-square rounded-xl overflow-hidden bg-zinc-900 border border-white/10 group relative">
-                <img src={`/properties/${selectedProperty.id}_kit.jpg`} alt="Kitchen" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-white font-mono text-xs uppercase tracking-widest">Kitchen</span>
+              <div className="flex flex-col gap-4">
+                <div className="aspect-square rounded-sm overflow-hidden bg-zinc-900 group">
+                  <img src={selectedProperty.images.kit} alt="Kitchen" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                 </div>
-              </div>
-
-              {/* Bathroom */}
-              <div className="aspect-square rounded-xl overflow-hidden bg-zinc-900 border border-white/10 group relative">
-                <img src={`/properties/${selectedProperty.id}_bath.jpg`} alt="Bathroom" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-white font-mono text-xs uppercase tracking-widest">Bathroom</span>
+                <div className="aspect-square rounded-sm overflow-hidden bg-zinc-900 group">
+                  <img src={selectedProperty.images.bath} alt="Bathroom" className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                 </div>
-              </div>
-              
-              {/* Locked Amenities */}
-              <div className="aspect-square rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center text-white/30 font-mono text-xs uppercase overflow-hidden cursor-not-allowed">
-                Amenities (Locked)
               </div>
             </div>
           </div>
+
+          {/* Action */}
+          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row gap-4 items-center justify-between pb-12">
+            <button className="w-full md:w-auto px-8 py-4 bg-white text-black font-outfit font-medium text-sm tracking-wide hover:bg-zinc-200 hover:scale-[1.02] hover:shadow-[0_4px_20px_rgba(255,255,255,0.2)] active:scale-95 transition-all duration-300">
+              Inquire Now
+            </button>
+            <p className="font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
+              Apex Residency EXCLUSIVE
+            </p>
+          </div>
+
         </div>
       )}
-    </section>
+    </div>
   );
 }
