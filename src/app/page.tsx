@@ -297,9 +297,10 @@ export default function HomePage() {
                 Mumbai · New Golden Mile
               </p>
             </div>
-            {/* 00 Counter in Hero */}
-            <div className="font-sans text-xs tracking-[0.3em] uppercase opacity-70 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
-              01 / 14
+            {/* Section Counter in Hero */}
+            <div className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C5A880] bg-black/60 px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-md flex items-center gap-1.5 font-medium">
+              <span className="opacity-50 text-[10px]">Section</span>
+              <span>01 / 14</span>
             </div>
           </div>
 
@@ -547,7 +548,7 @@ export default function HomePage() {
               <span className="italic font-light">Worli, Bandra & Juhu Coastline</span>
             </h2>
             <p className="font-sans text-sm md:text-base opacity-75 leading-relaxed">
-              Commanding the most prestigious coastal strip connecting South Mumbai to the Western Suburbs via the maritime Sea Link. Surrounded by private yacht clubs, Michelin-curated seaside dining, elite equestrian grounds, and serene natural parks.
+              Commanding Mumbai&apos;s coveted coastal axis connecting South Mumbai to Bandra and the Western Suburbs via the maritime Bandra-Worli Sea Link. Surrounded by esteemed seafront clubs, distinguished fine dining, Willingdon Golf, and serene waterfront promenades.
             </p>
             <div className="pt-4">
               <Link

@@ -257,15 +257,24 @@ export default function ApartmentsCatalog({
                         </div>
                         <div>
                           <p className="opacity-45 uppercase text-[10px] tracking-wider mb-0.5">Interior Area</p>
-                          <p className="text-white font-medium">{apt.interiorM2} m²</p>
+                          <p className="text-white font-medium">
+                            {Math.round(apt.interiorM2 * 10.7639).toLocaleString()} sq ft{' '}
+                            <span className="opacity-50 text-[10px]">({apt.interiorM2} m²)</span>
+                          </p>
                         </div>
                         <div>
                           <p className="opacity-45 uppercase text-[10px] tracking-wider mb-0.5">Terrace</p>
-                          <p className="text-white font-medium">{apt.terraceM2} m²</p>
+                          <p className="text-white font-medium">
+                            {Math.round(apt.terraceM2 * 10.7639).toLocaleString()} sq ft{' '}
+                            <span className="opacity-50 text-[10px]">({apt.terraceM2} m²)</span>
+                          </p>
                         </div>
                         <div>
                           <p className="opacity-45 uppercase text-[10px] tracking-wider mb-0.5">Total Area</p>
-                          <p className="text-white font-medium">{apt.interiorM2 + apt.terraceM2} m²</p>
+                          <p className="text-white font-medium">
+                            {Math.round((apt.interiorM2 + apt.terraceM2) * 10.7639).toLocaleString()} sq ft{' '}
+                            <span className="opacity-50 text-[10px]">({apt.interiorM2 + apt.terraceM2} m²)</span>
+                          </p>
                         </div>
                       </div>
 

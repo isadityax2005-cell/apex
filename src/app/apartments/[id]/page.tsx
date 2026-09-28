@@ -167,11 +167,15 @@ export default async function ApartmentDetailPage({ params }: DetailProps) {
               </div>
               <div className="py-3.5 flex justify-between">
                 <span className="opacity-50">Interior Surface</span>
-                <span className="text-white font-medium">{unit.interiorM2} m²</span>
+                <span className="text-white font-medium">
+                  {Math.round(unit.interiorM2 * 10.7639).toLocaleString()} sq ft ({unit.interiorM2} m²)
+                </span>
               </div>
               <div className="py-3.5 flex justify-between">
                 <span className="opacity-50">Terrace / Solarium</span>
-                <span className="text-emerald-400 font-medium">+{unit.terraceM2} m²</span>
+                <span className="text-emerald-400 font-medium">
+                  +{Math.round(unit.terraceM2 * 10.7639).toLocaleString()} sq ft ({unit.terraceM2} m²)
+                </span>
               </div>
               <div className="py-3.5 flex justify-between">
                 <span className="opacity-50">Building Block</span>

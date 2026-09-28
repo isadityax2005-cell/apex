@@ -147,7 +147,7 @@ export default function Footer() {
               </span>
               <div className="flex items-center gap-4 text-white/60">
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/apexresidency_mumbai"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -160,7 +160,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://facebook.com/apexresidencymumbai"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -171,7 +171,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/company/apex-residency-mumbai"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -208,7 +208,7 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms of Use
             </Link>
-            <span>Made by Antigravity Studio</span>
+            <span>MahaRERA: P51900084920</span>
           </div>
         </div>
       </div>
