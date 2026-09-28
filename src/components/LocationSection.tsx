@@ -1,117 +1,122 @@
 'use client';
 
-import { MapPin, Navigation, Compass, Waves } from 'lucide-react';
+import { Compass, Waves, MapPin, Navigation, Car, Plane, Utensils } from 'lucide-react';
 
-const LANDMARKS = [
-  { name: 'Bandra-Worli Sea Link', time: '3 min', type: 'Direct Access' },
-  { name: 'BKC Financial Center', time: '14 min', type: 'Executive Corridor' },
-  { name: 'Chhatrapati Shivaji Intl Airport', time: '22 min', type: 'Private Aviation Terminal' },
-  { name: 'Worli Royal Yacht Club & Marina', time: '6 min', type: 'Waterfront Berth' },
-  { name: 'Taj Lands End & Coastline', time: '8 min', type: 'Private Dining' },
-  { name: 'Juhu Beachfront Sanctuary', time: '0 min', type: 'Direct Beach Walkway' },
+const DESTINATIONS = [
+  { name: 'Laguna Village & Beach Club', time: '3 min', icon: Waves },
+  { name: 'Estepona Old Town & Marina', time: '6 min', icon: Navigation },
+  { name: 'Los Flamingos Golf Club', time: '8 min', icon: Car },
+  { name: 'Puerto Banús & Luxury Marina', time: '14 min', icon: Utensils },
+  { name: 'Marbella Old Town & Golden Mile', time: '18 min', icon: MapPin },
+  { name: 'Málaga International Airport (AGP)', time: '45 min', icon: Plane },
 ];
 
 export default function LocationSection() {
   return (
-    <section id="location" className="relative py-32 px-8 md:px-14 overflow-hidden bg-[#1B1E1D] text-[#EFECE6]">
-      {/* Drifting Clouds / Fog Ambient Marquee Layer */}
+    <section id="location" className="relative py-28 md:py-36 px-6 md:px-12 overflow-hidden bg-[#161918] text-[#EFECE6]">
+      {/* Layered Drifting Clouds / Fog Parallax Effect */}
       <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-        <div className="flex w-[200%] h-full animate-[marquee_45s_linear_infinite]">
+        <div className="flex w-[200%] h-full animate-[marquee_50s_linear_infinite]">
           <div className="w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent blur-3xl" />
           <div className="w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/15 via-transparent to-transparent blur-3xl" />
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 mb-20 items-start">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#D9383A]" />
-              <p className="font-sans text-xs tracking-[0.3em] uppercase opacity-50">02 — The Geography</p>
-            </div>
-            <h2 className="font-serif text-5xl md:text-6xl leading-[1.05]">
-              New Golden <br />
-              <span className="italic font-light">Mile, Mumbai</span>
-            </h2>
+        <div className="max-w-3xl mb-16">
+          <div className="flex items-center gap-2.5 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#D9383A]" />
+            <p className="font-sans text-xs tracking-[0.3em] uppercase opacity-50">Location & Connection</p>
           </div>
-          <div>
-            <p className="font-sans text-lg md:text-xl opacity-70 leading-relaxed max-w-2xl mb-8">
-              Stretching seamlessly across the Arabian Sea coastline from Worli's sky-high horizons, through Bandra's private lanes, to Juhu's tranquil beachfront. Apex Residency anchors Mumbai's most prestigious coastal addresses.
-            </p>
-            <div className="flex items-center gap-6 font-sans text-xs tracking-widest uppercase opacity-45">
-              <span className="flex items-center gap-1.5"><Compass size={14} /> 18.9986° N, 72.8174° E</span>
-              <span>·</span>
-              <span className="flex items-center gap-1.5"><Waves size={14} /> Arabian Sea Shoreline</span>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-tight">
+            The coast you wanted <br className="hidden sm:inline" />
+            <span className="italic font-light">yours this year</span>
+          </h2>
+          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C5A880] font-semibold">
+            New Golden Mile, Estepona, Costa del Sol, Spain
+          </p>
+        </div>
+
+        {/* Animated SVG Route Map & Landmarks Grid */}
+        <div className="rounded-3xl p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-xl mb-12">
+          {/* Animated Route Graphic */}
+          <div className="relative w-full h-44 sm:h-56 mb-12 overflow-hidden rounded-2xl bg-black/30 border border-white/10 p-6 flex flex-col justify-between">
+            <div className="flex items-center justify-between text-xs font-sans opacity-70">
+              <span className="flex items-center gap-2 text-[#C5A880]">
+                <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-ping" />
+                ERA Residence (Km 163)
+              </span>
+              <span>Mediterranean A-7 Coastal Arterial</span>
+              <span className="text-white">Puerto Banús / Marbella</span>
             </div>
+
+            {/* SVG Connecting Track with Animated Dash Line */}
+            <div className="relative w-full my-4">
+              <svg viewBox="0 0 800 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12">
+                {/* Background track */}
+                <path d="M20 30 Q200 10 400 30 T780 30" stroke="rgba(255,255,255,0.15)" strokeWidth="3" />
+                {/* Animated golden flow */}
+                <path
+                  d="M20 30 Q200 10 400 30 T780 30"
+                  stroke="#C5A880"
+                  strokeWidth="3"
+                  strokeDasharray="12 12"
+                  className="animate-[dash_15s_linear_infinite]"
+                />
+                {/* Waypoint nodes */}
+                <circle cx="20" cy="30" r="6" fill="#C5A880" />
+                <circle cx="220" cy="22" r="5" fill="white" />
+                <circle cx="400" cy="30" r="5" fill="white" />
+                <circle cx="580" cy="38" r="5" fill="white" />
+                <circle cx="780" cy="30" r="6" fill="#C5A880" />
+              </svg>
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] font-sans opacity-50 uppercase tracking-widest">
+              <span>Estepona Port</span>
+              <span>Costalita Beach</span>
+              <span>Guadalmina</span>
+              <span>San Pedro</span>
+              <span>Marbella Club</span>
+            </div>
+          </div>
+
+          {/* Landmarks Travel Time Matrix */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {DESTINATIONS.map((dest, i) => {
+              const Icon = dest.icon;
+              return (
+                <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#C5A880]/50 transition-colors">
+                  <Icon size={16} className="text-[#C5A880] mb-2" />
+                  <p className="font-serif text-2xl text-white font-medium mb-1">{dest.time}</p>
+                  <p className="font-sans text-[11px] opacity-65 leading-tight">{dest.name}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Coastal Map & Connection Track */}
-        <div className="rounded-3xl p-8 md:p-14 border border-white/10 mb-16 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(16px)' }}>
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-
-          {/* Three Nodes Connecting Track */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-sans text-xs tracking-widest uppercase opacity-40">01 / South Sanctum</span>
-                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.8)]" />
-              </div>
-              <h3 className="font-serif text-3xl mb-2 text-white">Worli</h3>
-              <p className="font-serif text-sm italic opacity-60 mb-4">The Penthouse · 6,200 sq.ft</p>
-              <p className="font-sans text-xs opacity-70 leading-relaxed mb-4">
-                Elevated high above the Arabian Sea with panoramic 270° views spanning the Bandra-Worli Sea Link and city skyline.
-              </p>
-              <div className="text-[11px] font-mono tracking-wider opacity-40 uppercase pt-3 border-t border-white/10">
-                Sea Link: 03 Mins
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-sans text-xs tracking-widest uppercase opacity-40">02 / Central Haven</span>
-                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.8)]" />
-              </div>
-              <h3 className="font-serif text-3xl mb-2 text-white">Bandra</h3>
-              <p className="font-serif text-sm italic opacity-60 mb-4">The Villa · 8,500 sq.ft</p>
-              <p className="font-sans text-xs opacity-70 leading-relaxed mb-4">
-                Enclosed private Mediterranean compound draped in bougainvillea, minutes from private members' clubs and Carter Road promenade.
-              </p>
-              <div className="text-[11px] font-mono tracking-wider opacity-40 uppercase pt-3 border-t border-white/10">
-                BKC Hub: 14 Mins
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-sans text-xs tracking-widest uppercase opacity-40">03 / Beachfront</span>
-                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.8)]" />
-              </div>
-              <h3 className="font-serif text-3xl mb-2 text-white">Juhu</h3>
-              <p className="font-serif text-sm italic opacity-60 mb-4">The Mansion · 12,000 sq.ft</p>
-              <p className="font-sans text-xs opacity-70 leading-relaxed mb-4">
-                Direct private tidal access to Juhu Beach. An architectural brutalist monolith in raw board-formed concrete and teak.
-              </p>
-              <div className="text-[11px] font-mono tracking-wider opacity-40 uppercase pt-3 border-t border-white/10">
-                Private Flight Terminal: 20 Mins
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Travel Distances Matrix */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {LANDMARKS.map((lm) => (
-            <div key={lm.name} className="p-4 rounded-xl border border-white/10 bg-white/[0.02]">
-              <p className="font-serif text-2xl text-white mb-1">{lm.time}</p>
-              <p className="font-sans text-xs text-white/90 font-medium mb-1 leading-snug">{lm.name}</p>
-              <p className="font-sans text-[10px] tracking-wider uppercase opacity-40">{lm.type}</p>
-            </div>
-          ))}
+        {/* Geographic Coordinates & Coastal Air */}
+        <div className="flex flex-wrap items-center justify-between gap-6 text-xs font-sans opacity-50 uppercase tracking-widest pt-4">
+          <span className="flex items-center gap-2">
+            <Compass size={14} className="text-[#C5A880]" />
+            <span>36.4328° N, 5.1432° W</span>
+          </span>
+          <span>·</span>
+          <span>Avg 320 Days of Annual Sunshine</span>
+          <span>·</span>
+          <span>Walking Distance to Sandy Beaches & Chiringuitos</span>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes dash {
+          to {
+            stroke-dashoffset: -200;
+          }
+        }
+      `}</style>
     </section>
   );
 }
