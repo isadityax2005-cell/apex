@@ -56,7 +56,7 @@ export default function HomePage() {
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const heroImageRef = useRef<HTMLImageElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
   const statResidencesRef = useRef<HTMLParagraphElement>(null);
   const statShoreRef = useRef<HTMLParagraphElement>(null);
 
@@ -229,59 +229,45 @@ export default function HomePage() {
         ref={heroRef}
         className="relative h-screen w-full overflow-hidden flex flex-col justify-end pb-10 md:pb-14 px-6 md:px-12"
       >
-        {/* Day / Night Image Crossfade with GSAP Scrub Parallax */}
+        {/* Day / Night Atmospheric Ambient Backdrop (Awaiting new custom imagery) */}
         <div className="absolute inset-0 z-0 bg-[#0E1110] overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               ref={heroImageRef}
               key={lightingMode}
-              src={lightingMode === 'day' ? '/hero.png' : '/properties/worli_ext.jpg'}
-              alt="Apex Residency Mumbai Coastal Sanctuary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: 'easeInOut' }}
-              className={`hero-bg-img w-full h-[115%] -top-[7%] absolute object-cover object-center ${
-                lightingMode === 'night' ? 'brightness-75 contrast-110 saturate-90' : 'brightness-95'
-              }`}
-            />
+              transition={{ duration: 1.0, ease: 'easeInOut' }}
+              className="hero-bg-img w-full h-[115%] -top-[7%] absolute inset-0 overflow-hidden"
+            >
+              {lightingMode === 'day' ? (
+                /* Day Atmosphere: Warm Golden Hour Horizon Aura */
+                <div className="w-full h-full relative bg-gradient-to-b from-[#181C1B] via-[#131615] to-[#0E1110]">
+                  {/* Subtle coastal golden light glow from the ocean horizon */}
+                  <div className="absolute w-[900px] h-[600px] -right-20 top-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(197,168,128,0.18)_0%,rgba(197,168,128,0.04)_50%,transparent_75%)] blur-3xl pointer-events-none" />
+                  <div className="absolute w-[600px] h-[400px] left-10 bottom-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,140,90,0.08)_0%,transparent_70%)] blur-2xl pointer-events-none" />
+                  {/* Architectural Blueprint Grid Pattern */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_60%,transparent_100%)] opacity-60" />
+                  {/* Horizon Sea Water Line Accent */}
+                  <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A880]/30 to-transparent" />
+                </div>
+              ) : (
+                /* Night Atmosphere: Midnight Blue Moonlit Ocean Horizon Aura */
+                <div className="w-full h-full relative bg-gradient-to-b from-[#0b0e11] via-[#090b0d] to-[#050706]">
+                  {/* Subtle sapphire moonlight glow */}
+                  <div className="absolute w-[900px] h-[600px] -right-20 top-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,90,140,0.22)_0%,rgba(30,50,90,0.06)_50%,transparent_75%)] blur-3xl pointer-events-none" />
+                  <div className="absolute w-[500px] h-[350px] left-10 top-1/3 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(70,110,170,0.1)_0%,transparent_70%)] blur-2xl pointer-events-none" />
+                  {/* Architectural Blueprint Grid Pattern */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_60%,transparent_100%)] opacity-40" />
+                  {/* Horizon Sea Water Line Accent */}
+                  <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+                </div>
+              )}
+            </motion.div>
           </AnimatePresence>
           {/* Subtle gradient vignette to blend with dock */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121514] via-[#121514]/25 to-black/35 pointer-events-none" />
-        </div>
-
-        {/* INTERACTIVE ARCHITECTURAL HOTSPOT PINS */}
-        <div className="hero-hotspot-pin">
-          <HotspotPin
-            x="54%"
-            y="42%"
-            tag="Sky Sanctuary"
-            title="Cantilevered Infinity Pool"
-            description="Suspended 140 meters above the Arabian Sea with optical glass floor and salt-mineral filtration."
-            align="right"
-          />
-        </div>
-
-        <div className="hero-hotspot-pin">
-          <HotspotPin
-            x="68%"
-            y="20%"
-            tag="Aviation Transit"
-            title="VIP Rooftop Helipad"
-            description="Dedicated private helicopter landing pad with private biometric elevator connecting directly to the duplex penthouses."
-            align="left"
-          />
-        </div>
-
-        <div className="hero-hotspot-pin">
-          <HotspotPin
-            x="48%"
-            y="76%"
-            tag="Wellness Promenade"
-            title="Subtropical Garden Paths"
-            description="Instead of enclosed corridors, fragrant bougainvillea paths and natural stone walkways connect each private residence."
-            align="right"
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121514] via-[#121514]/30 to-black/40 pointer-events-none" />
         </div>
 
         {/* ACCESSIBLE SEO HEADING */}
