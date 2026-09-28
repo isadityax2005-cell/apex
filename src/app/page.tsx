@@ -362,45 +362,53 @@ export default function ApexResidencyPage() {
         <div className="absolute inset-0 z-0 bg-[#121413] overflow-hidden">
           <img 
             ref={heroImgRef} 
-            src="/properties/worli_ext.jpg" 
-            alt="Apex Residency Architectural Showcase" 
-            className={`w-full h-[130%] object-cover object-center transition-all duration-1000 ${
+            src="/hero.png" 
+            alt="Apex Residency Architectural Masterpiece" 
+            className={`w-full h-[125%] object-cover object-center transition-all duration-1000 ${
               lightingMode === 'night' 
-                ? 'brightness-[0.65] contrast-[1.15] saturate-[0.85] hue-rotate-[210deg]' 
-                : 'brightness-[0.95] contrast-[1.02] saturate-[1.05]'
+                ? 'brightness-[0.7] contrast-[1.18] saturate-[0.8] hue-rotate-[205deg]' 
+                : 'brightness-[1.0] contrast-[1.0] saturate-[1.0]'
             }`} 
           />
           {/* Day / Night atmospheric overlays */}
           <div className={`absolute inset-0 transition-opacity duration-1000 pointer-events-none ${
             lightingMode === 'night' 
-              ? 'bg-gradient-to-t from-[#0A0C0B]/95 via-[#0D1524]/60 to-[#050811]/40' 
-              : 'bg-gradient-to-t from-[#2C302E]/85 via-[#2C302E]/30 to-transparent'
+              ? 'bg-gradient-to-t from-[#0A0C0B]/90 via-[#0D1524]/50 to-[#050811]/30' 
+              : 'bg-gradient-to-t from-[#141716]/80 via-transparent to-transparent'
           }`} />
         </div>
 
         {/* ERA RESIDENCY HOTSPOT PINS DIRECTLY ON MASTER RENDERING */}
         <HotspotPin 
           x="72%" 
-          y="38%" 
-          tag="Altitude 280m" 
-          title="Cantilevered Sky Pool" 
-          description="20m heated infinity pool cantilevered above the Arabian Sea with uninterrupted 270° sunset views." 
+          y="15%" 
+          tag="Rooftop VIP" 
+          title="Executive Helipad Deck" 
+          description="Private flight landing clearance with direct biometric elevator descent into the triplex penthouse." 
           align="left"
         />
         <HotspotPin 
-          x="46%" 
-          y="24%" 
-          tag="Direct Transit" 
-          title="VIP Sky Helipad" 
-          description="Dedicated twin-engine helipad deck with private biometric elevator descent directly into the penthouse foyer." 
-          align="right"
+          x="61%" 
+          y="44%" 
+          tag="Level 72" 
+          title="Cantilevered Glass Pool" 
+          description="20m heated infinity pool with structural glass bottom, cantilevered 280 meters above the Arabian Sea." 
+          align="left"
         />
         <HotspotPin 
-          x="30%" 
-          y="62%" 
-          tag="Acoustic Envelope" 
-          title="Acoustic Curtain Facade" 
-          description="Triple-layer acoustic facade shielding ocean winds while offering floor-to-ceiling thermal glass expanses." 
+          x="72%" 
+          y="68%" 
+          tag="Interiors" 
+          title="Liaigre & Molteni Suites" 
+          description="Triple-pane acoustic envelope with custom French oak millwork, Dornbracht platinum baths, and 2700K circadian lighting." 
+          align="left"
+        />
+        <HotspotPin 
+          x="28%" 
+          y="38%" 
+          tag="Connectivity" 
+          title="Bandra-Worli Sea Link" 
+          description="Direct private access to Mumbai's primary maritime corridor, connecting Worli to Bandra in under 4 minutes." 
           align="right"
         />
 
