@@ -30,21 +30,21 @@ const REASONS = [
     kicker: 'Designed as a community, not a complex',
     title: 'Real-Life Coastal Location',
     desc: 'Nestled on Mumbai’s coveted New Golden Mile between pristine seafront promenades, world-renowned coastal clubs, and serene private enclaves. Everything you need for refined daily life is within effortless reach.',
-    image: '/properties/bandra_ext.jpg',
+    image: '/properties/worli_terrace.jpg',
   },
   {
     number: '02',
     kicker: 'Designed as a community, not a complex',
     title: 'Built to Endure',
     desc: 'Echoing the timeless spirit of bespoke modernism with authentic natural travertine stone, hand-fluted marble, acoustic curtain facades, and low-maintenance biophilic coastal gardens.',
-    image: '/properties/worli_living.jpg',
+    image: '/properties/bandra_ext.jpg',
   },
   {
     number: '03',
     kicker: 'Designed as a community, not a complex',
     title: 'Boutique Concept',
     desc: 'A strictly limited collection of only 24 residences ensuring absolute privacy, acoustic tranquility, and an authentic neighborhood ambiance surrounded by lush subtropical landscapes.',
-    image: '/properties/juhu_living.jpg',
+    image: '/properties/juhu_pool.jpg',
   },
 ];
 
@@ -493,7 +493,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[4/3] group">
             <img
-              src="/properties/bandra_pool.jpg"
+              src="/properties/bandra_int.jpg"
               alt="Apex Residency boutique community"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -562,7 +562,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-6 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[16/11] order-1 lg:order-2 group">
             <img
-              src="/properties/worli_terrace.jpg"
+              src="/properties/juhu_ext.jpg"
               alt="Mumbai New Golden Mile Seafront"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

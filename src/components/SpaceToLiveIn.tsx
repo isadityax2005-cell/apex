@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
 
 const INTERIOR_GALLERY = [
-  { src: '/properties/worli_kitchen.jpg', title: 'Open-Concept Kitchen', caption: 'Silestone & Gaggenau Suite' },
+  { src: '/properties/bandra_kitchen.jpg', title: 'Open-Concept Kitchen', caption: 'Silestone & Gaggenau Suite' },
   { src: '/properties/worli_bedroom.jpg', title: 'Master Suite', caption: 'Motorized Acoustic Shutters' },
-  { src: '/properties/worli_bathroom.jpg', title: 'Porcelanosa Bath', caption: 'Underfloor Radiant Heating' },
-  { src: '/properties/bandra_living.jpg', title: 'Sunlit Living Salon', caption: 'Schneider DLIFE Automation' },
+  { src: '/properties/worli_bathroom.jpg', title: 'Designer Bath', caption: 'Underfloor Radiant Heating' },
+  { src: '/properties/juhu_living.jpg', title: 'Sunlit Living Salon', caption: 'Schneider Smart Automation' },
 ];
 
 export default function SpaceToLiveIn() {
@@ -39,7 +39,7 @@ export default function SpaceToLiveIn() {
           {/* Main Large Image */}
           <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative aspect-[16/11]">
             <img
-              src="/properties/worli_living.jpg"
+              src="/properties/juhu_int.jpg"
               alt="The space to live in"
               className="w-full h-full object-cover"
             />

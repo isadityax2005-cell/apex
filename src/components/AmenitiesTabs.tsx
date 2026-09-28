@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldCheck, Waves, Car, Dumbbell, Trees, ArrowRight } from 'lucide-react';
+import { TOTAL_UNITS } from '@/data/apartments';
 
 interface AmenitiesTabsProps {
   onOpenBooking: () => void;
@@ -11,12 +12,12 @@ interface AmenitiesTabsProps {
 const AMENITIES = [
   {
     id: 'gated',
-    label: 'Gated Community',
+    label: 'Gated Enclave',
     icon: ShieldCheck,
-    title: 'Peace of Mind in a Private Enclave',
-    image: '/properties/bandra_ext.jpg',
+    title: 'Peace of Mind in a Private Mumbai Enclave',
+    image: '/properties/worli_ext.jpg',
     description:
-      'ERA Residence is fully enclosed with perimeter surveillance, video intercom access, and private 24/7 security. Walking paths lined with indigenous flora replace interior roadways, creating a tranquil sanctuary for families and guests.',
+      'Apex Residency is fully enclosed with perimeter biometric surveillance, video intercom access, and private 24/7 security concierge. Pedestrian-only walking paths lined with indigenous flora replace interior roadways, creating a tranquil sanctuary for families and guests.',
     specs: ['24/7 Monitored Access', 'Pedestrian-Only Walkways', 'Automated Perimeter Lighting', 'Private Resident Entry'],
   },
   {
@@ -26,38 +27,38 @@ const AMENITIES = [
     title: 'Saltwater Oasis & Thermal Wellness',
     image: '/properties/worli_amenities.jpg',
     description:
-      'A centerpiece saltwater swimming pool featuring gentle submerged loungers, an integrated children’s shallow pool, outdoor jacuzzi, Finnish sauna, and sensory wellness rain showers nestled within sub-tropical landscaping.',
-    specs: ['Saltwater Filtration System', 'Integrated Children Pool', 'Finnish Sauna & Jacuzzi', 'Thermal Wellness Showers'],
+      'A centerpiece 25m saltwater swimming pool featuring gentle submerged loungers, an integrated shallow pool, outdoor jacuzzi, Finnish cedar sauna, and sensory wellness rain showers nestled within sub-tropical coastal landscaping.',
+    specs: ['Saltwater Filtration System', 'Integrated Infinity Edge', 'Finnish Sauna & Jacuzzi', 'Thermal Wellness Showers'],
   },
   {
     id: 'parking',
-    label: 'Parking Area',
+    label: 'Parking & EV',
     icon: Car,
     title: 'Subterranean Garage with Dedicated EV Infrastructure',
     image: '/properties/juhu_ext.jpg',
     description:
-      'Secure underground parking with generous maneuvering bays, private storage vaults, and individual pre-installation for high-speed electric vehicle charging stations for each residence.',
-    specs: ['Individual EV Pre-Installation', 'Private Underground Storage', 'Automated Number Plate Recognition', 'Direct Elevator Access'],
+      'Secure underground parking with generous maneuvering bays, private storage vaults, and individual pre-installation for high-speed electric vehicle charging stations for each private residence.',
+    specs: ['Individual 22kW EV Pre-Install', 'Private Basement Vaults', 'Automated Number Plate Recognition', 'Direct Private Elevator Access'],
   },
   {
     id: 'spa',
     label: 'Spa & Gym',
     icon: Dumbbell,
     title: 'Exclusive Resident Fitness & Recovery Pavilion',
-    image: '/properties/worli_living.jpg',
+    image: '/properties/bandra_amenities.jpg',
     description:
       'Reserved exclusively for residents and their invited guests, our wellness pavilion houses state-of-the-art cardiovascular and strength equipment, yoga stretching terrace, and private treatment rooms.',
     specs: ['Technogym Cardio & Strength', 'Private Treatment Suites', 'Yoga & Pilates Deck', 'Resident-Only Access'],
   },
   {
     id: 'landscape',
-    label: 'Landscaping',
+    label: 'Coastal Gardens',
     icon: Trees,
-    title: 'Mediterranean Biophilic Gardens',
+    title: 'Coastal Biophilic Seafront Gardens',
     image: '/properties/bandra_pool.jpg',
     description:
-      'Designed by leading Andalusian landscape architects, featuring centuries-old olive trees, vibrant magenta bougainvillea, lavender, and aromatic citrus groves watered with automated drip irrigation.',
-    specs: ['Centuries-Old Olive Trees', 'Aromatic Herb & Citrus Groves', 'Low-Consumption Drip Irrigation', 'Continuous Walking Paths'],
+      'Designed by leading landscape architects, featuring native coastal banyan, vibrant magenta bougainvillea, Frangipani, and aromatic floral groves watered with low-consumption automated drip irrigation.',
+    specs: ['Indigenous Coastal Flora', 'Aromatic Frangipani Groves', 'Low-Consumption Drip Irrigation', 'Continuous Walking Paths'],
   },
 ];
 
@@ -85,8 +86,8 @@ export default function AmenitiesTabs({ onOpenBooking }: AmenitiesTabsProps) {
           </button>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex flex-wrap gap-2.5 sm:gap-3 mb-12 border-b border-white/10 pb-6">
+        {/* Tab Buttons with layoutId active pill */}
+        <div className="flex flex-wrap gap-2.5 sm:gap-3 mb-12 border-b border-white/10 pb-6 relative">
           {AMENITIES.map((tab) => {
             const Icon = tab.icon;
             const isActive = tab.id === activeTab;
@@ -94,14 +95,21 @@ export default function AmenitiesTabs({ onOpenBooking }: AmenitiesTabsProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2.5 px-5 py-3 rounded-full font-sans text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#EFECE6] text-[#171A19] font-semibold shadow-lg'
-                    : 'bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10'
+                className={`relative flex items-center gap-2.5 px-5 py-3 rounded-full font-sans text-xs tracking-wider uppercase transition-colors duration-300 cursor-pointer ${
+                  isActive ? 'text-[#171A19] font-semibold' : 'text-white/70 hover:text-white bg-white/5 border border-white/10'
                 }`}
               >
-                <Icon size={15} />
-                <span>{tab.label}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeAmenityTab"
+                    className="absolute inset-0 bg-[#EFECE6] rounded-full shadow-lg -z-0"
+                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Icon size={15} />
+                  <span>{tab.label}</span>
+                </span>
               </button>
             );
           })}
@@ -121,7 +129,7 @@ export default function AmenitiesTabs({ onOpenBooking }: AmenitiesTabsProps) {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <h3 className="font-serif text-3xl md:text-4xl text-white mb-6 leading-tight">
                     {current.title}
@@ -143,7 +151,7 @@ export default function AmenitiesTabs({ onOpenBooking }: AmenitiesTabsProps) {
 
             <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between">
               <span className="font-sans text-xs uppercase tracking-widest opacity-45">
-                Exclusively for 25 Residences
+                Exclusively for {TOTAL_UNITS} Residences
               </span>
               <button
                 onClick={onOpenBooking}
@@ -155,17 +163,17 @@ export default function AmenitiesTabs({ onOpenBooking }: AmenitiesTabsProps) {
             </div>
           </div>
 
-          {/* Image Container with Crossfade */}
+          {/* Image Container with Clip-path Wipe */}
           <div className="lg:col-span-6 relative min-h-[350px] lg:min-h-full overflow-hidden bg-black/40">
             <AnimatePresence mode="wait">
               <motion.img
                 key={current.id}
                 src={current.image}
                 alt={current.title}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
+                initial={{ clipPath: 'inset(100% 0% 0% 0%)', scale: 1.08 }}
+                animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+                exit={{ clipPath: 'inset(0% 0% 100% 0%)', scale: 0.98 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full h-full object-cover object-center absolute inset-0"
               />
             </AnimatePresence>

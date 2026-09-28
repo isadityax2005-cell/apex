@@ -6,13 +6,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Lenis v1.x API — orientation/gestureOrientation removed
     const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      lerp: 0.09,
+      smoothWheel: true,
     });
+
+    if (typeof window !== 'undefined') {
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    }
 
     // Connect Lenis to GSAP ticker so ScrollTrigger stays in sync
     const tickerHandler = (time: number) => {
@@ -22,10 +23,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     gsap.ticker.lagSmoothing(0);
 
     // Tell ScrollTrigger to use Lenis's scroll position
-    lenis.on('scroll', () => ScrollTrigger.update());
+    lenis.on('scroll', ScrollTrigger.update);
 
     return () => {
       gsap.ticker.remove(tickerHandler);
+      if (typeof window !== 'undefined') {
+        delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      }
       lenis.destroy();
     };
   }, []);

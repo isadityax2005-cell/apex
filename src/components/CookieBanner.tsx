@@ -8,7 +8,7 @@ export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('era_cookie_consent');
+    const consent = localStorage.getItem('apex_cookie_consent');
     if (!consent) {
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
@@ -16,7 +16,7 @@ export default function CookieBanner() {
   }, []);
 
   const handleChoice = (accepted: boolean) => {
-    localStorage.setItem('era_cookie_consent', accepted ? 'accepted' : 'declined');
+    localStorage.setItem('apex_cookie_consent', accepted ? 'accepted' : 'declined');
     setVisible(false);
   };
 
@@ -36,7 +36,7 @@ export default function CookieBanner() {
             </div>
             <div>
               <p className="font-sans text-xs leading-relaxed opacity-85">
-                This website uses cookies to ensure you get the best experience on website.
+                Apex Residency uses essential and analytics cookies to deliver an optimal editorial viewing experience and preserve residence preferences.
               </p>
             </div>
           </div>

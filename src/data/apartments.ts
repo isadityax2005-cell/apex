@@ -19,6 +19,8 @@ export interface Apartment {
   features: string[];
 }
 
+export const TOTAL_UNITS = 24;
+
 export const APARTMENTS: Apartment[] = [
   // Ground floor + basement (3 bed)
   {
@@ -69,7 +71,7 @@ export const APARTMENTS: Apartment[] = [
       '/properties/bandra_bathroom.jpg',
     ],
     floorPlanImage: '/properties/bandra_ext.jpg',
-    description: 'Elegant dual-level layout featuring sun-bathed living spaces that open onto Mediterranean landscaped walking paths and private outdoor patios.',
+    description: 'Elegant dual-level layout featuring sun-bathed living spaces that open onto landscaped coastal walking paths and private outdoor patios.',
     features: ['Multi-Room Basement Suite', 'Natural Stone Cladding', 'Integrated Aerothermal HVAC', 'Electric Aluminium Shutters', 'EV Ready Garage Bay'],
   },
   {
@@ -142,7 +144,7 @@ export const APARTMENTS: Apartment[] = [
       '/properties/bandra_living.jpg',
     ],
     floorPlanImage: '/properties/bandra_ext.jpg',
-    description: 'Combines generous interior proportions with seamless outdoor entertaining spaces, surrounded by Mediterranean olive trees and aromatic gardens.',
+    description: 'Combines generous interior proportions with seamless outdoor entertaining spaces, surrounded by lush coastal gardens and aromatic flora.',
     features: ['Expansive Alfresco Dining Terrace', 'Sub-Zero & Bosch Appliances', 'Video Intercom with Mobile Link', 'Dornbracht Brassware', 'Basement Gym Nook'],
   },
   {
@@ -188,7 +190,7 @@ export const APARTMENTS: Apartment[] = [
     heroImage: '/properties/worli_living.jpg',
     gallery: ['/properties/worli_living.jpg', '/properties/worli_kitchen.jpg', '/properties/worli_bedroom.jpg'],
     floorPlanImage: '/properties/worli_ext.jpg',
-    description: 'Luminous single-level 2-bedroom residence featuring an open-concept living pavilion extending smoothly onto a 29m² covered Mediterranean porch.',
+    description: 'Luminous single-level 2-bedroom residence featuring an open-concept living pavilion extending smoothly onto a 29m² covered coastal veranda.',
     features: ['Single-Level Convenience', 'Open-Concept Living', 'Porcelain Wood-Effect Tiles', 'Motorized Louvers', 'Low-Consumption Aerothermal'],
   },
   {
@@ -336,8 +338,8 @@ export const APARTMENTS: Apartment[] = [
       '/properties/worli_bathroom.jpg',
     ],
     floorPlanImage: '/properties/worli_ext.jpg',
-    description: 'Flagship duplex penthouse commanding a monumental 151m² private rooftop solarium with panoramic 360° vistas of the Mediterranean coastline and Sierra Bermeja mountains.',
-    features: ['Monumental 151m² Rooftop Solarium', 'Pre-Installation for Private Jacuzzi', 'Outdoor Summer Kitchen Pre-Install', 'Unobstructed Mediterranean Sea Views', 'Double Height Architectural Living'],
+    description: 'Flagship duplex penthouse commanding a monumental 151m² private rooftop solarium with panoramic 360° vistas of the Arabian Sea coastline and Mumbai skyline.',
+    features: ['Monumental 151m² Rooftop Solarium', 'Pre-Installation for Private Jacuzzi', 'Outdoor Summer Kitchen Pre-Install', 'Unobstructed Arabian Sea Views', 'Double Height Architectural Living'],
   },
 
   // Penthouse duplex (2 bed)
@@ -498,7 +500,7 @@ export const APARTMENTS: Apartment[] = [
     heroImage: '/properties/juhu_living.jpg',
     gallery: ['/properties/juhu_living.jpg', '/properties/juhu_kitchen.jpg', '/properties/juhu_pool.jpg'],
     floorPlanImage: '/properties/juhu_ext.jpg',
-    description: 'Architectural jewel positioned in Block 3 offering sweeping panoramic views across the New Golden Mile towards the Estepona coast.',
+    description: 'Architectural jewel positioned in Block 3 offering sweeping panoramic views across the New Golden Mile towards the Arabian Sea coast.',
     features: ['Panoramic Coastal Views', 'Custom Solarium Decking', 'Low-Consumption Aerothermal', 'Pre-Installed Hot Tub Hookup', 'Dual Storage Bays'],
   },
   {
@@ -558,7 +560,7 @@ export const APARTMENTS: Apartment[] = [
     heroImage: '/properties/juhu_pool.jpg',
     gallery: ['/properties/juhu_pool.jpg', '/properties/juhu_living.jpg', '/properties/juhu_bedroom.jpg'],
     floorPlanImage: '/properties/juhu_ext.jpg',
-    description: 'Pinnacle corner penthouse duplex offering maximum sun exposure, expansive 62m² solarium, and front-row views of the sunset over Estepona bay.',
+    description: 'Pinnacle corner penthouse duplex offering maximum sun exposure, expansive 62m² solarium, and front-row views of the sunset over the Arabian Sea.',
     features: ['Sunset Solarium Views', 'Corner Duplex Privacy', 'Pre-Installed Jacuzzi', 'Integrated Designer Kitchen', 'Double Garage & Vault'],
   },
 ];

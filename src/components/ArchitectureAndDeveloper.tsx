@@ -69,13 +69,13 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A880] block mb-2 font-semibold">
                 Regulatory Clearance
               </span>
-              <h3 className="font-serif text-2xl text-white mb-2">License Obtained</h3>
+              <h3 className="font-serif text-2xl text-white mb-2">MahaRERA Registered</h3>
               <p className="font-sans text-xs opacity-65 leading-relaxed mb-6">
-                Full municipal building license granted by Estepona Town Hall. Construction underway with milestone delivery scheduled for 4Q 2026.
+                Full Intimation of Disapproval (IOD) & Commencement Certificate (CC) granted by MCGM. Registered with MahaRERA (P51900084920).
               </p>
               <div className="flex items-center gap-2 text-xs font-sans text-[#C5A880]">
                 <Award size={16} />
-                <span>Handover: 4Q 2026 Confirmed</span>
+                <span>MahaRERA: P51900084920</span>
               </div>
             </div>
 
@@ -87,15 +87,17 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
                 </span>
                 <h3 className="font-serif text-2xl text-white mb-2">Live Construction Stream</h3>
                 <p className="font-sans text-xs opacity-65 leading-relaxed mb-4">
-                  Watch live progress of the structural works, garden shaping, and swimming pool excavation in real-time.
+                  Watch live structural works, marine engineering, and swimming pool excavation streamed directly from Worli Sea Face.
                 </p>
               </div>
 
-              <a
-                href="#developer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert('Construction webcam live stream is currently active for registered reservation holders.');
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    const message = 'Live construction webcam feed is active for verified prospective buyers. Please book a call to receive private credentials.';
+                    alert(message);
+                  }
                 }}
                 className="inline-flex items-center justify-between px-5 py-3 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all font-sans text-xs tracking-widest uppercase cursor-pointer"
               >
@@ -104,7 +106,7 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
                   <span>View Live Stream</span>
                 </span>
                 <ExternalLink size={13} className="opacity-50" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

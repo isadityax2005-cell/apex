@@ -24,18 +24,22 @@ export default function BookCallModal({ isOpen, onClose, defaultResidence = 'Gen
   const modalRef = useRef<HTMLDivElement>(null);
   const firstInputRef = useRef<HTMLInputElement>(null);
 
-  // Focus trap & auto-focus
+  // Focus trap & auto-focus & Lenis scroll lock
   useEffect(() => {
+    const lenis = typeof window !== 'undefined' ? (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis : undefined;
     if (isOpen) {
       setStatus('idle');
       setErrorMessage('');
       setTimeout(() => firstInputRef.current?.focus(), 150);
       document.body.style.overflow = 'hidden';
+      lenis?.stop();
     } else {
       document.body.style.overflow = '';
+      lenis?.start();
     }
     return () => {
       document.body.style.overflow = '';
+      lenis?.start();
     };
   }, [isOpen]);
 
@@ -136,7 +140,7 @@ export default function BookCallModal({ isOpen, onClose, defaultResidence = 'Gen
               <>
                 <div className="mb-6">
                   <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C5A880] block mb-2">
-                    {defaultResidence ? defaultResidence : 'ERA Residence Estepona'}
+                    {defaultResidence ? defaultResidence : 'Apex Residency Worli Sea Face'}
                   </span>
                   <h3 className="font-serif text-3xl md:text-4xl text-white">Book a Call</h3>
                   <p className="font-sans text-xs opacity-60 mt-1">

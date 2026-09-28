@@ -20,18 +20,18 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Apex Residency — Ultra-Luxury Coastal Residences | Mumbai · New Golden Mile',
   description: 'A boutique collection of 24 ultra-luxury coastal residences along the Arabian Sea on the New Golden Mile, Worli, Bandra, and Juhu, Mumbai.',
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://real-estate-base-template.vercel.app'),
   openGraph: {
     title: 'Apex Residency — Ultra-Luxury Coastal Residences in Mumbai',
     description: 'A boutique collection of 24 ultra-luxury coastal residences along the Arabian Sea on the New Golden Mile, Mumbai.',
-    url: 'https://www.apexresidency.com',
+    url: 'https://real-estate-base-template.vercel.app',
     siteName: 'Apex Residency',
     images: [
       {
-        url: '/hero.png',
+        url: 'https://real-estate-base-template.vercel.app/hero-day.jpg',
         width: 1200,
         height: 630,
-        alt: 'Apex Residency Mumbai',
+        alt: 'Apex Residency — Ultra-Luxury Coastal Residences Mumbai',
       },
     ],
     locale: 'en_US',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Apex Residency — Ultra-Luxury Coastal Residences in Mumbai',
     description: 'Boutique collection of 24 ultra-luxury residences on the New Golden Mile, Mumbai.',
-    images: ['/hero.png'],
+    images: ['https://real-estate-base-template.vercel.app/hero-day.jpg'],
   },
 };
 
@@ -62,7 +62,7 @@ export default function RootLayout({
               '@type': 'RealEstateListing',
               name: 'Apex Residency Mumbai',
               description: 'A boutique collection of 24 ultra-luxury residences on the New Golden Mile, Mumbai.',
-              url: 'https://www.apexresidency.com',
+              url: 'https://real-estate-base-template.vercel.app',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Apex Tower, Worli Sea Face',
@@ -72,6 +72,7 @@ export default function RootLayout({
                 addressCountry: 'IN',
               },
               telephone: '+912269888800',
+              identifier: 'MahaRERA: P51900084920',
             }),
           }}
         />

@@ -10,12 +10,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0E1110] text-[#EFECE6] border-t border-white/10 relative overflow-hidden">
-      {/* CLOSING CTA BLOCK (ERA RESIDENCE BENCHMARK) */}
+      {/* CLOSING CTA BLOCK */}
       <section className="relative py-28 md:py-36 px-6 md:px-12 overflow-hidden flex items-center justify-center text-center">
         {/* Full-bleed background image with dark vignette */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/properties/worli_terrace.jpg"
+            src="/properties/worli_living.jpg"
             alt="Perfect sea views from rooftop terraces"
             className="w-full h-full object-cover object-center opacity-30"
           />
