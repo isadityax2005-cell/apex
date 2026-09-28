@@ -51,7 +51,7 @@ export default function MenuOverlay({ isOpen, onClose, onOpenBooking }: MenuOver
           {/* Top Bar with Brand & Close */}
           <div className="flex justify-between items-center w-full max-w-7xl mx-auto border-b border-white/10 pb-6">
             <Link href="/" onClick={onClose} className="font-serif text-2xl tracking-wider uppercase text-white">
-              Era <span className="italic font-light">Residence</span>
+              Apex <span className="italic font-light">Residency</span>
             </Link>
             <button
               onClick={onClose}
@@ -161,8 +161,8 @@ export default function MenuOverlay({ isOpen, onClose, onOpenBooking }: MenuOver
 
           {/* Bottom Footer Info */}
           <div className="w-full max-w-7xl mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-sans opacity-45">
-            <p>New Golden Mile · Estepona, Costa del Sol, Spain</p>
-            <p>© 2026 ERA Residence. All rights reserved.</p>
+            <p>New Golden Mile · Mumbai Coastal Sanctuary</p>
+            <p>© 2026 Apex Residency. All rights reserved.</p>
           </div>
         </motion.div>
       )}

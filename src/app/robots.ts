@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://www.era-residence.com/sitemap.xml',
+    sitemap: 'https://www.apexresidency.com/sitemap.xml',
   };
 }

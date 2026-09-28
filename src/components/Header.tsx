@@ -42,10 +42,10 @@ export default function Header({ breadcrumb, lightingMode, onToggleLighting }: H
           <div className="flex items-center gap-6">
             <Link href="/" className="flex flex-col group flex-shrink-0">
               <span className="font-serif text-xl tracking-wider uppercase text-white group-hover:opacity-85 transition-opacity font-normal">
-                Era <span className="italic font-light">Residence</span>
+                Apex <span className="italic font-light">Residency</span>
               </span>
               <span className="font-sans text-[8.5px] tracking-[0.3em] uppercase text-white/50">
-                Estepona · Costa del Sol
+                Mumbai · New Golden Mile
               </span>
             </Link>
 

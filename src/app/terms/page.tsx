@@ -3,8 +3,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Terms of Use — ERA Residence Estepona',
-  description: 'Terms of use and statutory legal conditions for ERA Residence website and digital materials.',
+  title: 'Terms of Use — Apex Residency Mumbai',
+  description: 'Terms of use and statutory legal conditions for Apex Residency website and digital materials.',
 };
 
 export default function TermsPage() {
@@ -22,7 +22,7 @@ export default function TermsPage() {
 
         <div className="prose prose-invert max-w-none space-y-6 text-sm font-sans opacity-80 leading-relaxed border-t border-white/10 pt-8">
           <p>
-            Welcome to the official digital portal of ERA Residence. By accessing, browsing, or utilizing this website, you agree to be bound by the statutory terms set forth below.
+            Welcome to the official digital portal of Apex Residency. By accessing, browsing, or utilizing this website, you agree to be bound by the statutory terms set forth below.
           </p>
 
           <h3 className="font-serif text-2xl text-white pt-4">1. Architectural Visualizations and Renders</h3>
@@ -30,19 +30,19 @@ export default function TermsPage() {
             All architectural computer-generated imagery (CGI), 3D floor plans, landscape depictions, and interior staging exhibited on this website are of an illustrative nature. While prepared with technical precision according to approved architectural master plans, finish materials and dimensions may undergo minor technical adjustments during municipal construction execution.
           </p>
 
-          <h3 className="font-serif text-2xl text-white pt-4">2. Building Licenses and Statutory Clearances</h3>
+          <h3 className="font-serif text-2xl text-white pt-4">2. Building Approvals and Statutory Clearances</h3>
           <p>
-            ERA Residence holds full municipal licenses granted by the Ayuntamiento de Estepona. Binding contractual details, technical specifications, and escrow bank guarantees are governed exclusively by executed private purchase contracts (Contrato de Compraventa).
+            Apex Residency holds full municipal clearances and is registered with the Real Estate Regulatory Authority (MahaRERA Reg: P51900084920). Binding contractual details, technical specifications, and escrow bank guarantees are governed exclusively by executed allotment letters and agreements for sale.
           </p>
 
           <h3 className="font-serif text-2xl text-white pt-4">3. Intellectual Property Rights</h3>
           <p>
-            All graphics, architectural designs, logos, typography, line art, and software code published on this website are protected under European intellectual property legislation and remain the exclusive property of ERA Capital Developments S.L.
+            All graphics, architectural designs, logos, typography, line art, and software code published on this website are protected under applicable intellectual property laws and remain the exclusive property of Apex Luxury Developments Ltd.
           </p>
 
           <h3 className="font-serif text-2xl text-white pt-4">4. Governing Jurisdiction</h3>
           <p>
-            Any disputes arising in connection with the access or utilization of this website shall be submitted to the exclusive jurisdiction of the Courts of Estepona and Malaga, Spain.
+            Any disputes arising in connection with the access or utilization of this website shall be submitted to the exclusive jurisdiction of the Courts of Mumbai, Maharashtra, India.
           </p>
         </div>
       </div>

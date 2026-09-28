@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import SpotlightCard from './react-bits/SpotlightCard';
 
 const TYPOLOGIES = [
   {
@@ -88,12 +89,13 @@ export default function TypologyCards() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TYPOLOGIES.map((item, idx) => (
-            <div
+            <SpotlightCard
               key={item.id}
+              spotlightColor="rgba(197, 168, 128, 0.2)"
               className={`rounded-3xl border transition-all duration-500 overflow-hidden flex flex-col justify-between ${
                 idx === activeSlide
                   ? 'bg-[#222625] border-[#C5A880]/60 shadow-[0_20px_50px_rgba(0,0,0,0.5)] scale-[1.02]'
-                  : 'bg-white/5 border-white/10 opacity-75 hover:opacity-100'
+                  : 'bg-white/5 border-white/10 opacity-80 hover:opacity-100 hover:border-white/30'
               }`}
             >
               <div>
@@ -129,7 +131,7 @@ export default function TypologyCards() {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 

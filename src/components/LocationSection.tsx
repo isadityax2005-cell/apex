@@ -45,7 +45,7 @@ export default function LocationSection() {
             <div className="flex items-center justify-between text-xs font-sans opacity-70">
               <span className="flex items-center gap-2 text-[#C5A880]">
                 <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-ping" />
-                ERA Residence (Km 163)
+                Apex Residency · Sea Face
               </span>
               <span>Mediterranean A-7 Coastal Arterial</span>
               <span className="text-white">Puerto Banús / Marbella</span>

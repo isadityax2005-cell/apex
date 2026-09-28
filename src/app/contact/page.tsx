@@ -68,8 +68,8 @@ export default function ContactPage() {
                   <Phone size={18} className="text-[#C5A880] flex-shrink-0 mt-1" />
                   <div>
                     <p className="opacity-50 text-xs uppercase tracking-wider mb-0.5">Direct Line</p>
-                    <a href="tel:+34655408648" className="text-white hover:text-[#C5A880] transition-colors font-medium">
-                      +34 (655) 408-648
+                    <a href="tel:+912269888800" className="text-white hover:text-[#C5A880] transition-colors font-medium">
+                      +91 (22) 6988-8800
                     </a>
                   </div>
                 </div>
@@ -78,8 +78,8 @@ export default function ContactPage() {
                   <Mail size={18} className="text-[#C5A880] flex-shrink-0 mt-1" />
                   <div>
                     <p className="opacity-50 text-xs uppercase tracking-wider mb-0.5">Electronic Inquiries</p>
-                    <a href="mailto:info@era-residence.com" className="text-white hover:text-[#C5A880] transition-colors">
-                      info@era-residence.com
+                    <a href="mailto:concierge@apexresidency.com" className="text-white hover:text-[#C5A880] transition-colors">
+                      concierge@apexresidency.com
                     </a>
                   </div>
                 </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
               {/* WhatsApp Fast Track Button */}
               <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://wa.me/34655408648?text=Hello%20ERA%20Residence%20team,%20I%20would%20like%20to%20receive%20more%20information."
+                  href="https://wa.me/912269888800?text=Hello%20Apex%20Residency%20team,%20I%20would%20like%20to%20receive%20more%20information."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3.5 rounded-full font-sans text-xs tracking-widest uppercase font-semibold bg-[#25D366] text-white hover:bg-[#20ba59] transition-all flex items-center justify-center gap-2 shadow-lg"
@@ -182,16 +182,16 @@ export default function ContactPage() {
               <div className="w-20 h-20 rounded-full border border-[#C5A880]/60 bg-black/60 backdrop-blur-md flex items-center justify-center text-[#C5A880] mb-4 shadow-2xl">
                 <MapPin size={32} />
               </div>
-              <h3 className="font-serif text-3xl text-white mb-2">ERA Residence Sales Lounge</h3>
+              <h3 className="font-serif text-3xl text-white mb-2">Apex Residency Experience Pavilion</h3>
               <p className="font-sans text-xs opacity-75 max-w-sm">
-                Avenida Litoral, 29680 Estepona · Frontline Mediterranean Corridor
+                Apex Tower, New Golden Mile, Worli Sea Face, Mumbai 400018
               </p>
             </div>
 
             {/* Bottom Direct CTA */}
             <div className="relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <a
-                href="https://maps.google.com/?q=Avenida+Litoral,+29680+Estepona,+Malaga,+Spain"
+                href="https://maps.google.com/?q=Worli+Sea+Face,+Mumbai,+Maharashtra,+India"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-sans tracking-widest uppercase text-[#C5A880] hover:underline"

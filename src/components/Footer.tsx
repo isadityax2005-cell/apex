@@ -47,34 +47,34 @@ export default function Footer() {
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Link href="/" className="font-serif text-3xl uppercase tracking-wider text-white mb-4 block">
-                Era <span className="italic font-light">Residence</span>
+                Apex <span className="italic font-light">Residency</span>
               </Link>
               <p className="font-sans text-xs uppercase tracking-[0.3em] opacity-50 mb-6">
-                Estepona · New Golden Mile · Costa del Sol
+                Mumbai · New Golden Mile · Coastal Sanctuary
               </p>
               <div className="space-y-2.5 text-sm opacity-70 font-sans">
                 <a
-                  href="https://maps.google.com/?q=Avenida+Litoral,+29680+Estepona,+Malaga,+Spain"
+                  href="https://maps.google.com/?q=Worli+Sea+Face,+Mumbai,+Maharashtra,+India"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2.5 hover:text-white transition-colors"
                 >
                   <MapPin size={16} className="text-[#C5A880] flex-shrink-0 mt-0.5" />
-                  <span>Sales Office: Avenida Litoral, 29680 Estepona, Malaga, Spain</span>
+                  <span>Sales Pavilion: Apex Tower, New Golden Mile, Worli Sea Face, Mumbai 400018</span>
                 </a>
                 <a
-                  href="tel:+34655408648"
+                  href="tel:+912269888800"
                   className="flex items-center gap-2.5 hover:text-white transition-colors"
                 >
                   <Phone size={16} className="text-[#C5A880] flex-shrink-0" />
-                  <span>+34 (655) 408-648</span>
+                  <span>+91 (22) 6988-8800</span>
                 </a>
                 <a
-                  href="mailto:info@era-residence.com"
+                  href="mailto:concierge@apexresidency.com"
                   className="flex items-center gap-2.5 hover:text-white transition-colors"
                 >
                   <Mail size={16} className="text-[#C5A880] flex-shrink-0" />
-                  <span>info@era-residence.com</span>
+                  <span>concierge@apexresidency.com</span>
                 </a>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function Footer() {
           <div className="md:col-span-3 flex flex-col justify-between items-start md:items-end">
             <div>
               <span className="text-[11px] uppercase tracking-widest text-[#C5A880] font-semibold block mb-4">
-                Follow ERA
+                Follow APEX
               </span>
               <div className="flex items-center gap-4 text-white/60">
                 <a
@@ -200,7 +200,7 @@ export default function Footer() {
 
         {/* Bottom Legal Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-sans opacity-45">
-          <p>© 2026 ERA Residence Estepona. All rights reserved.</p>
+          <p>© 2026 Apex Residency Mumbai. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy

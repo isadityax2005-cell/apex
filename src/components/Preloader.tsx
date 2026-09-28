@@ -12,7 +12,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
   useEffect(() => {
     // Check if preloader has already played this session
-    const hasLoaded = sessionStorage.getItem('era_preloader_shown');
+    const hasLoaded = sessionStorage.getItem('apex_preloader_shown');
     if (hasLoaded) {
       setDone(true);
       onComplete?.();
@@ -21,7 +21,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
     const timer = setTimeout(() => {
       setDone(true);
-      sessionStorage.setItem('era_preloader_shown', 'true');
+      sessionStorage.setItem('apex_preloader_shown', 'true');
       onComplete?.();
     }, 2400);
 
@@ -48,7 +48,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-sans text-[11px] tracking-[0.4em] uppercase text-[#C5A880] mb-4"
             >
-              Costa del Sol · Estepona
+              Mumbai · New Golden Mile
             </motion.p>
 
             {/* Line Art Landscape SVG */}
@@ -76,7 +76,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="font-serif text-5xl sm:text-6xl uppercase tracking-[0.18em] leading-tight text-white mb-4"
             >
-              Era <span className="italic font-light">Residence</span>
+              Apex <span className="italic font-light">Residency</span>
             </motion.h1>
 
             {/* Tagline */}

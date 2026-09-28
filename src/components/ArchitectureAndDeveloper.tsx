@@ -22,7 +22,7 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
               <span className="italic font-light">Lines & Warmth</span>
             </h2>
             <p className="font-sans text-xs uppercase tracking-widest text-[#C5A880] mb-8 font-semibold">
-              Architecture Team · Era Residence
+              Architecture Team · Apex Residency
             </p>
             <button
               onClick={onOpenBooking}
@@ -36,10 +36,10 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
           <div className="lg:col-span-7 space-y-6">
             <div className="w-16 h-[2px] bg-[#D9383A] mb-4" />
             <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl italic font-light leading-relaxed text-white/95">
-              &ldquo;The architecture of ERA Residence unites clean contemporary lines with the warmth of traditional Mediterranean living. Natural limestone, timber accents, and filtered sea light create homes designed to endure.&rdquo;
+              &ldquo;The architecture of Apex Residency unites clean contemporary lines with the warmth of timeless coastal living. Natural limestone, timber accents, and filtered Arabian Sea light create homes designed to endure.&rdquo;
             </blockquote>
             <p className="font-sans text-sm md:text-base opacity-70 leading-relaxed pt-4">
-              Carefully calibrated cantilevers shield interiors from the midday Andalusian sun while inviting soft coastal reflections across expansive travertine terraces.
+              Carefully calibrated cantilevers shield interiors from the tropical midday sun while inviting soft marine breezes across expansive travertine terraces.
             </p>
           </div>
         </div>
@@ -54,9 +54,9 @@ export default function ArchitectureAndDeveloper({ onOpenBooking }: Architecture
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A880] block mb-2 font-semibold">
                 Developer & Delivery
               </span>
-              <h3 className="font-serif text-2xl text-white mb-2">ERA Capital Developments</h3>
+              <h3 className="font-serif text-2xl text-white mb-2">Apex Luxury Developments</h3>
               <p className="font-sans text-xs opacity-65 leading-relaxed mb-6">
-                Specializing in prime residential enclaves along the Costa del Sol with over 20 years of institutional development leadership.
+                Specializing in prime residential enclaves along Mumbai&apos;s coveted coastline with over 20 years of institutional development leadership.
               </p>
               <div className="flex items-center gap-2 text-xs font-sans text-emerald-400">
                 <ShieldCheck size={16} />

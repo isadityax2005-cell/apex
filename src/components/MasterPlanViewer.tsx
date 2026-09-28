@@ -74,7 +74,7 @@ export default function MasterPlanViewer() {
           {/* Master Plan Map Graphic */}
           <img
             src="/hero.png"
-            alt="ERA Residence Master Plan"
+            alt="Apex Residency Master Plan"
             className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
             draggable={false}
           />

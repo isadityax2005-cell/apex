@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { APARTMENTS } from '@/data/apartments';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.era-residence.com';
+  const baseUrl = 'https://www.apexresidency.com';
 
   const unitUrls = APARTMENTS.map((apt) => ({
     url: `${baseUrl}/apartments/${apt.id}`,

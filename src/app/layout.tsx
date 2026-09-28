@@ -18,20 +18,20 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'ERA Residence - Contemporary Mediterranean Residences in Estepona',
-  description: 'A boutique gated community of only 25 contemporary Mediterranean residences on the New Golden Mile, Estepona, Costa del Sol, Spain.',
+  title: 'Apex Residency — Ultra-Luxury Coastal Residences | Mumbai · New Golden Mile',
+  description: 'A boutique collection of 24 ultra-luxury coastal residences along the Arabian Sea on the New Golden Mile, Worli, Bandra, and Juhu, Mumbai.',
   metadataBase: new URL('http://localhost:3000'),
   openGraph: {
-    title: 'ERA Residence - Contemporary Mediterranean Residences in Estepona',
-    description: 'A boutique gated community of only 25 contemporary Mediterranean residences on the New Golden Mile, Estepona, Costa del Sol.',
-    url: 'https://www.era-residence.com',
-    siteName: 'ERA Residence',
+    title: 'Apex Residency — Ultra-Luxury Coastal Residences in Mumbai',
+    description: 'A boutique collection of 24 ultra-luxury coastal residences along the Arabian Sea on the New Golden Mile, Mumbai.',
+    url: 'https://www.apexresidency.com',
+    siteName: 'Apex Residency',
     images: [
       {
         url: '/hero.png',
         width: 1200,
         height: 630,
-        alt: 'ERA Residence Estepona',
+        alt: 'Apex Residency Mumbai',
       },
     ],
     locale: 'en_US',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ERA Residence - Contemporary Mediterranean Residences in Estepona',
-    description: 'Boutique gated community of 25 luxury residences on the New Golden Mile, Estepona.',
+    title: 'Apex Residency — Ultra-Luxury Coastal Residences in Mumbai',
+    description: 'Boutique collection of 24 ultra-luxury residences on the New Golden Mile, Mumbai.',
     images: ['/hero.png'],
   },
 };
@@ -60,18 +60,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateListing',
-              name: 'ERA Residence Estepona',
-              description: 'A boutique gated community of only 25 residences on the New Golden Mile, Estepona.',
-              url: 'https://www.era-residence.com',
+              name: 'Apex Residency Mumbai',
+              description: 'A boutique collection of 24 ultra-luxury residences on the New Golden Mile, Mumbai.',
+              url: 'https://www.apexresidency.com',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Avenida Litoral',
-                addressLocality: 'Estepona',
-                postalCode: '29680',
-                addressRegion: 'Malaga',
-                addressCountry: 'ES',
+                streetAddress: 'Apex Tower, Worli Sea Face',
+                addressLocality: 'Mumbai',
+                postalCode: '400018',
+                addressRegion: 'Maharashtra',
+                addressCountry: 'IN',
               },
-              telephone: '+34655408648',
+              telephone: '+912269888800',
             }),
           }}
         />

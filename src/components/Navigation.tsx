@@ -57,7 +57,7 @@ export default function Navigation({
           </span>
         </a>
 
-        {/* Center: ERA By Day / By Night Switcher */}
+        {/* Center: Apex By Day / By Night Switcher */}
         {onToggleLighting && (
           <div 
             className="flex items-center p-1 rounded-full border border-white/20 shadow-xl"
