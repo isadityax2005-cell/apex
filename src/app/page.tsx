@@ -56,7 +56,7 @@ export default function HomePage() {
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const heroImageRef = useRef<HTMLDivElement>(null);
+  const heroImageRef = useRef<HTMLImageElement>(null);
   const statResidencesRef = useRef<HTMLParagraphElement>(null);
   const statShoreRef = useRef<HTMLParagraphElement>(null);
 
@@ -229,45 +229,57 @@ export default function HomePage() {
         ref={heroRef}
         className="relative h-screen w-full overflow-hidden flex flex-col justify-end pb-10 md:pb-14 px-6 md:px-12"
       >
-        {/* Day / Night Atmospheric Ambient Backdrop (Awaiting new custom imagery) */}
+        {/* Day / Night Image Crossfade with GSAP Scrub Parallax */}
         <div className="absolute inset-0 z-0 bg-[#0E1110] overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.img
               ref={heroImageRef}
               key={lightingMode}
+              src={lightingMode === 'day' ? '/hero-day.jpg' : '/hero-night.jpg'}
+              alt={lightingMode === 'day' ? 'Apex Residency Mumbai Daytime Coastal Masterpiece' : 'Apex Residency Mumbai Twilight Illumination'}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.0, ease: 'easeInOut' }}
-              className="hero-bg-img w-full h-[115%] -top-[7%] absolute inset-0 overflow-hidden"
-            >
-              {lightingMode === 'day' ? (
-                /* Day Atmosphere: Warm Golden Hour Horizon Aura */
-                <div className="w-full h-full relative bg-gradient-to-b from-[#181C1B] via-[#131615] to-[#0E1110]">
-                  {/* Subtle coastal golden light glow from the ocean horizon */}
-                  <div className="absolute w-[900px] h-[600px] -right-20 top-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(197,168,128,0.18)_0%,rgba(197,168,128,0.04)_50%,transparent_75%)] blur-3xl pointer-events-none" />
-                  <div className="absolute w-[600px] h-[400px] left-10 bottom-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,140,90,0.08)_0%,transparent_70%)] blur-2xl pointer-events-none" />
-                  {/* Architectural Blueprint Grid Pattern */}
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_60%,transparent_100%)] opacity-60" />
-                  {/* Horizon Sea Water Line Accent */}
-                  <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A880]/30 to-transparent" />
-                </div>
-              ) : (
-                /* Night Atmosphere: Midnight Blue Moonlit Ocean Horizon Aura */
-                <div className="w-full h-full relative bg-gradient-to-b from-[#0b0e11] via-[#090b0d] to-[#050706]">
-                  {/* Subtle sapphire moonlight glow */}
-                  <div className="absolute w-[900px] h-[600px] -right-20 top-1/4 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,90,140,0.22)_0%,rgba(30,50,90,0.06)_50%,transparent_75%)] blur-3xl pointer-events-none" />
-                  <div className="absolute w-[500px] h-[350px] left-10 top-1/3 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(70,110,170,0.1)_0%,transparent_70%)] blur-2xl pointer-events-none" />
-                  {/* Architectural Blueprint Grid Pattern */}
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,#000_60%,transparent_100%)] opacity-40" />
-                  {/* Horizon Sea Water Line Accent */}
-                  <div className="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
-                </div>
-              )}
-            </motion.div>
+              className="hero-bg-img w-full h-[115%] -top-[7%] absolute object-cover object-center"
+            />
           </AnimatePresence>
           {/* Subtle gradient vignette to blend with dock */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121514] via-[#121514]/30 to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121514] via-[#121514]/20 to-black/35 pointer-events-none" />
+        </div>
+
+        {/* INTERACTIVE ARCHITECTURAL HOTSPOT PINS ACCURATELY ALIGNED TO BUILDING */}
+        <div className="hero-hotspot-pin">
+          <HotspotPin
+            x="56%"
+            y="74%"
+            tag="Sky Sanctuary"
+            title="Cantilevered Infinity Pool"
+            description="Suspended optical glass pool with salt-mineral filtration and uninterrupted Arabian Sea horizon views."
+            align="right"
+          />
+        </div>
+
+        <div className="hero-hotspot-pin">
+          <HotspotPin
+            x="77%"
+            y="14%"
+            tag="Aviation Transit"
+            title="Private Rooftop Helipad"
+            description="Dedicated landing clearance with biometric elevator descent directly into the master penthouse."
+            align="left"
+          />
+        </div>
+
+        <div className="hero-hotspot-pin">
+          <HotspotPin
+            x="82%"
+            y="40%"
+            tag="Interior Design"
+            title="Double-Height Glass Suites"
+            description="Triple-pane acoustic envelope with custom travertine columns, French oak millwork, and 2700K circadian lighting."
+            align="left"
+          />
         </div>
 
         {/* ACCESSIBLE SEO HEADING */}
@@ -275,7 +287,7 @@ export default function HomePage() {
           The Apex Residency — Ultra-Luxury Coastal Residences in Worli, Bandra, and Juhu, Mumbai.
         </h1>
 
-        {/* Hero Content Overlay (Positioned to honor and complement the baked-in gold typography) */}
+        {/* Hero Content Overlay (Positioned in the open sea negative space on the left) */}
         <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col justify-between h-[82%] pt-20 pointer-events-none">
           {/* Top Bar Indicators */}
           <div className="flex items-center justify-between pointer-events-auto">
@@ -293,15 +305,19 @@ export default function HomePage() {
 
           {/* Center Brand Subtitle with Interactive Day/Night Switch */}
           <div className="max-w-2xl py-4 pointer-events-auto">
-            <div className="mb-2">
-              <span className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-sans tracking-[0.25em] uppercase text-[#C5A880]">
+            <div className="mb-3">
+              <span className="inline-block px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-sans tracking-[0.25em] uppercase text-[#C5A880]">
                 Architecture by Studio Soma · Interiors by Liaigre
               </span>
             </div>
 
-            {/* Headline with BlurText Animation and interactive toggles */}
-            <div className="font-serif text-2xl sm:text-3xl md:text-4xl text-white/95 font-light leading-snug drop-shadow-lg">
-              <span>A place </span>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-[0.06em] text-white font-normal leading-[0.92] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]">
+              Apex <span className="italic font-light">Residency</span>
+            </h1>
+
+            {/* Headline with interactive toggles */}
+            <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-white/95 font-light leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+              A place{' '}
               <button
                 onClick={() => setLightingMode('day')}
                 className={`transition-all underline decoration-1 underline-offset-8 cursor-pointer ${
@@ -323,8 +339,8 @@ export default function HomePage() {
               >
                 by night
               </button>{' '}
-              <span>to return to.</span>
-            </div>
+              to return to.
+            </p>
           </div>
 
           {/* Bottom Action Dock & Stats */}
