@@ -335,7 +335,11 @@ export default function ApexResidencyPage() {
   return (
     <main className="bg-[#EFECE6] text-[#2C302E] min-h-screen overflow-x-hidden selection:bg-[#2C302E] selection:text-[#EFECE6]">
       {/* GLOBAL NAVIGATION */}
-      <Navigation onOpenBooking={() => openBookingFor('The Penthouse (Worli, Mumbai)')} />
+      <Navigation 
+        onOpenBooking={() => openBookingFor('The Penthouse (Worli, Mumbai)')} 
+        lightingMode={lightingMode}
+        onToggleLighting={setLightingMode}
+      />
 
       {/* BOOKING MODAL */}
       <BookingModal 
@@ -357,143 +361,107 @@ export default function ApexResidencyPage() {
       </div>
 
       {/* HERO SECTION WITH DAY/NIGHT LIGHTING & HOTSPOT PINS */}
-      <section id="hero" className="relative h-screen w-full overflow-hidden flex flex-col justify-end pb-16 md:pb-24 px-8 md:px-14">
+      <section id="hero" className="relative h-screen w-full overflow-hidden flex flex-col justify-end pb-12 md:pb-16 px-6 md:px-14">
         {/* Dynamic Architectural Background Image with Day/Night lighting shift */}
-        <div className="absolute inset-0 z-0 bg-[#121413] overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-[#0e1110] overflow-hidden">
           <img 
             ref={heroImgRef} 
             src="/hero.png" 
             alt="Apex Residency Architectural Masterpiece" 
-            className={`w-full h-[125%] object-cover object-center transition-all duration-1000 ${
+            className={`w-full h-[120%] object-cover object-center transition-all duration-1000 ${
               lightingMode === 'night' 
-                ? 'brightness-[0.7] contrast-[1.18] saturate-[0.8] hue-rotate-[205deg]' 
+                ? 'brightness-[0.72] contrast-[1.15] saturate-[0.82] hue-rotate-[205deg]' 
                 : 'brightness-[1.0] contrast-[1.0] saturate-[1.0]'
             }`} 
           />
           {/* Day / Night atmospheric overlays */}
           <div className={`absolute inset-0 transition-opacity duration-1000 pointer-events-none ${
             lightingMode === 'night' 
-              ? 'bg-gradient-to-t from-[#0A0C0B]/90 via-[#0D1524]/50 to-[#050811]/30' 
-              : 'bg-gradient-to-t from-[#141716]/80 via-transparent to-transparent'
+              ? 'bg-gradient-to-t from-[#0A0C0B]/90 via-[#0D1524]/40 to-transparent' 
+              : 'bg-gradient-to-t from-[#0E1110]/70 via-transparent to-transparent'
           }`} />
         </div>
 
-        {/* ERA RESIDENCY HOTSPOT PINS DIRECTLY ON MASTER RENDERING */}
+        {/* ERA RESIDENCY REFINED HOTSPOT PINS */}
         <HotspotPin 
-          x="72%" 
-          y="15%" 
-          tag="Rooftop VIP" 
-          title="Executive Helipad Deck" 
-          description="Private flight landing clearance with direct biometric elevator descent into the triplex penthouse." 
-          align="left"
-        />
-        <HotspotPin 
-          x="61%" 
-          y="44%" 
+          x="54%" 
+          y="46%" 
           tag="Level 72" 
-          title="Cantilevered Glass Pool" 
+          title="Cantilevered Sky Pool" 
           description="20m heated infinity pool with structural glass bottom, cantilevered 280 meters above the Arabian Sea." 
           align="left"
         />
         <HotspotPin 
-          x="72%" 
-          y="68%" 
-          tag="Interiors" 
-          title="Liaigre & Molteni Suites" 
-          description="Triple-pane acoustic envelope with custom French oak millwork, Dornbracht platinum baths, and 2700K circadian lighting." 
+          x="66%" 
+          y="24%" 
+          tag="Rooftop Deck" 
+          title="VIP Helipad Transit" 
+          description="Private flight landing clearance with direct biometric elevator descent into the triplex penthouse." 
           align="left"
         />
-        <HotspotPin 
-          x="28%" 
-          y="38%" 
-          tag="Connectivity" 
-          title="Bandra-Worli Sea Link" 
-          description="Direct private access to Mumbai's primary maritime corridor, connecting Worli to Bandra in under 4 minutes." 
-          align="right"
-        />
 
-        {/* HERO TOP-RIGHT CONTROLS: DAY / NIGHT LIGHTING SWITCH */}
-        <div className="absolute top-28 right-8 md:right-14 z-20 flex items-center gap-3">
+        {/* ACCESSIBLE SEO HEADING (visually hidden to avoid clashing with the baked-in editorial title) */}
+        <h1 className="sr-only">
+          The Apex Residency — Where The Sky Meets The Sea. Luxury Coastal Residences in Worli, Bandra, and Juhu, Mumbai.
+        </h1>
+
+        {/* BOTTOM ACTION DOCK */}
+        <div className="relative z-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2">
+          {/* Action buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <a 
+              href="#residences" 
+              className="px-8 py-4 rounded-full text-[#EFECE6] font-sans text-[11px] tracking-[0.25em] uppercase transition-all duration-300 hover:scale-105 hover:bg-white hover:text-[#141716] shadow-2xl flex items-center gap-3 font-medium group" 
+              style={{ 
+                background: 'rgba(20, 24, 23, 0.7)', 
+                backdropFilter: 'blur(20px)', 
+                WebkitBackdropFilter: 'blur(20px)', 
+                border: '1px solid rgba(255, 255, 255, 0.3)' 
+              }}
+            >
+              <span>Explore The Residences</span>
+              <span className="text-white/40 group-hover:translate-y-0.5 transition-transform">↓</span>
+            </a>
+
+            <button
+              onClick={() => openBookingFor('The Penthouse (Worli, Mumbai)')}
+              className="px-8 py-4 rounded-full text-[#EFECE6] font-sans text-[11px] tracking-[0.25em] uppercase transition-all duration-300 hover:scale-105 hover:bg-white/20 shadow-2xl font-medium"
+              style={{ 
+                background: 'rgba(255, 255, 255, 0.1)', 
+                backdropFilter: 'blur(16px)', 
+                WebkitBackdropFilter: 'blur(16px)', 
+                border: '1px solid rgba(255, 255, 255, 0.22)' 
+              }}
+            >
+              Schedule Private Viewing
+            </button>
+          </div>
+
+          {/* Quick Stats Pill */}
           <div 
-            className="flex items-center p-1 rounded-full border border-white/25 shadow-2xl"
-            style={{ 
-              background: 'rgba(20, 24, 23, 0.65)', 
-              backdropFilter: 'blur(16px)', 
-              WebkitBackdropFilter: 'blur(16px)' 
+            className="hidden md:flex items-center gap-6 px-7 py-3.5 rounded-full text-[11px] font-sans tracking-[0.2em] uppercase text-white/75 shadow-xl"
+            style={{
+              background: 'rgba(15, 18, 17, 0.65)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)'
             }}
           >
-            <button
-              onClick={() => setLightingMode('day')}
-              className={`px-4 py-2 rounded-full font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
-                lightingMode === 'day' 
-                  ? 'bg-white text-[#2C302E] font-semibold shadow-md' 
-                  : 'text-white/60 hover:text-white'
-              }`}
-            >
-              By Day
-            </button>
-            <button
-              onClick={() => setLightingMode('night')}
-              className={`px-4 py-2 rounded-full font-sans text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
-                lightingMode === 'night' 
-                  ? 'bg-white text-[#2C302E] font-semibold shadow-md' 
-                  : 'text-white/60 hover:text-white'
-              }`}
-            >
-              By Night
-            </button>
-          </div>
-        </div>
-
-        {/* HERO CONTENT */}
-        <div className="relative z-10 text-[#EFECE6] flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-          <div className="max-w-3xl">
-            <div className="overflow-hidden mb-3">
-              <p className="reveal-char font-sans text-xs tracking-[0.4em] uppercase opacity-75">
-                New Golden Mile · Mumbai, India
-              </p>
-            </div>
-            <h1 className="font-serif leading-[0.88] tracking-[-0.02em]">
-              <span className="block text-[clamp(3.8rem,11vw,9.5rem)] overflow-hidden">
-                <span className="reveal-char inline-block">Apex</span>
-              </span>
-              <span className="block text-[clamp(3.8rem,11vw,9.5rem)] italic font-light overflow-hidden">
-                <span className="reveal-char inline-block">Residency</span>
-              </span>
-            </h1>
-            <div className="mt-8 flex flex-wrap gap-4 items-center">
-              <p className="reveal-char font-serif text-xl md:text-2xl italic opacity-85 max-w-sm">
-                A place to return to.
-              </p>
-              <a 
-                href="#residences" 
-                className="reveal-char px-8 py-3.5 rounded-full text-[#EFECE6] font-sans text-xs tracking-widest uppercase hover:scale-105 transition-all shadow-lg" 
-                style={{ 
-                  background: 'rgba(239,236,230,0.18)', 
-                  backdropFilter: 'blur(16px) saturate(180%)', 
-                  WebkitBackdropFilter: 'blur(16px) saturate(180%)', 
-                  border: '1px solid rgba(239,236,230,0.35)' 
-                }}
-              >
-                View Residences
-              </a>
-            </div>
-          </div>
-
-          {/* ERA SIGNATURE ROTATING CIRCULAR CTA */}
-          <div className="hidden lg:flex flex-col items-center">
-            <CircularCtaButton 
-              label="Private Tour" 
-              onClick={() => openBookingFor('The Penthouse (Worli, Mumbai)')}
-              size={155}
-            />
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+              3 Coastal Estates
+            </span>
+            <span className="opacity-30">·</span>
+            <span>From &#8377;48 Cr</span>
+            <span className="opacity-30">·</span>
+            <span className="text-[#D4AF37]">MahaRERA: P51900084920</span>
           </div>
         </div>
 
         {/* SCROLL INDICATOR */}
-        <div className="absolute right-8 bottom-8 hidden md:flex flex-col items-center gap-3 text-[#EFECE6]/50">
-          <div className="w-px h-14 bg-white/30" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
-          <p className="font-sans text-[9px] tracking-[0.3em] uppercase" style={{ writingMode: 'vertical-rl' }}>Scroll</p>
+        <div className="absolute right-8 bottom-6 hidden lg:flex flex-col items-center gap-2.5 text-[#EFECE6]/40 pointer-events-none">
+          <div className="w-px h-12 bg-white/25" style={{ animation: 'pulse 2s ease-in-out infinite' }} />
+          <p className="font-sans text-[8px] tracking-[0.35em] uppercase" style={{ writingMode: 'vertical-rl' }}>Scroll</p>
         </div>
       </section>
 

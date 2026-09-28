@@ -24,22 +24,22 @@ export default function HotspotPin({ x, y, title, tag, description, align = 'rig
       onMouseLeave={() => setOpen(false)}
     >
       {/* Pulse Beacon */}
-      <div className="relative cursor-pointer">
-        <span className="absolute -inset-2 rounded-full bg-white/20 animate-ping" />
+      <div className="relative cursor-pointer group">
+        <span className="absolute -inset-1.5 rounded-full bg-[#D4AF37]/30 animate-ping opacity-60" />
         <button
           onClick={() => setOpen(!open)}
           aria-label={`View ${title} hotspot`}
-          className="relative w-8 h-8 rounded-full flex items-center justify-center text-white transition-transform duration-300 hover:scale-125"
+          className="relative w-7 h-7 rounded-full flex items-center justify-center text-white transition-all duration-300 group-hover:scale-115 group-hover:bg-[#D4AF37] group-hover:text-black shadow-lg"
           style={{
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            border: '1px solid rgba(255, 255, 255, 0.5)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+            background: 'rgba(20, 24, 23, 0.75)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1.5px solid rgba(212, 175, 55, 0.75)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5)',
           }}
         >
-          <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.3 }}>
-            <Plus size={14} className="stroke-[2.5]" />
+          <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.25 }}>
+            <Plus size={13} className="stroke-[2.5]" />
           </motion.div>
         </button>
       </div>
