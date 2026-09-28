@@ -3,7 +3,11 @@
 import { useState, useEffect } from 'react';
 import gsap from 'gsap';
 
-export default function Navigation() {
+interface NavigationProps {
+  onOpenBooking?: () => void;
+}
+
+export default function Navigation({ onOpenBooking }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -21,22 +25,33 @@ export default function Navigation() {
   return (
     <>
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 py-7 px-8 md:px-14 flex justify-between items-center mix-blend-difference text-white">
+      <nav className="fixed top-0 w-full z-50 py-6 px-8 md:px-14 flex justify-between items-center mix-blend-difference text-white">
         <a href="#" className="font-serif text-xl tracking-tight text-white hover:opacity-80 transition-opacity">
           Apex <span className="italic font-light">Residency</span>
         </a>
         
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="group relative z-50 flex items-center justify-center p-2"
-          aria-label="Toggle navigation menu"
-        >
-          <div className="flex flex-col gap-1.5 items-end">
-            <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 rotate-45 translate-y-[7px]' : 'w-8 group-hover:w-6'}`} />
-            <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'opacity-0' : 'w-6 group-hover:w-8'}`} />
-            <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 -rotate-45 -translate-y-[7px]' : 'w-4 group-hover:w-8'}`} />
-          </div>
-        </button>
+        <div className="flex items-center gap-6">
+          {onOpenBooking && (
+            <button
+              onClick={onOpenBooking}
+              className="hidden sm:inline-flex items-center font-sans text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 rounded-full border border-white/40 hover:bg-white hover:text-black transition-all duration-300"
+            >
+              Book a Viewing
+            </button>
+          )}
+
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="group relative z-50 flex items-center justify-center p-2"
+            aria-label="Toggle navigation menu"
+          >
+            <div className="flex flex-col gap-1.5 items-end">
+              <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 rotate-45 translate-y-[7px]' : 'w-8 group-hover:w-6'}`} />
+              <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'opacity-0' : 'w-6 group-hover:w-8'}`} />
+              <span className={`block h-[1px] bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 -rotate-45 -translate-y-[7px]' : 'w-4 group-hover:w-8'}`} />
+            </div>
+          </button>
+        </div>
       </nav>
 
       {/* Fullscreen Overlay */}
